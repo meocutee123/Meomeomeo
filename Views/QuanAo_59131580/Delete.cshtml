@@ -1,0 +1,78 @@
+﻿@model KT20_59131580.Models.QuanAo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Mày có chắc chắn muốn xóa cái này?</h3>
+<div>
+    <h4>QuanAo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <img src="@Url.Content(Model.AnhMinhHoa)" alt="" style="width: 100px; height: 100px; border-radius: 50%;"/>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">THÔNG TIN CHI TIẾT</h2>
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên quần áo
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenQA)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MoTa)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MoTa)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.XuatXu)
+                </dt>
+
+                @if(Model.XuatXu != true)
+                {
+                    <dd>Trung Quốc</dd>
+                }
+                else
+                {
+                    <dd>Việt Nam</dd>
+                }
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DonGia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DonGia)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LOAIQUANAO.TenLoai)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LOAIQUANAO.TenLoai)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
